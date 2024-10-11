@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const productRoutes = require('./routes/products');
 const clientRoutes = require('./routes/clients');
 const salesRoutes = require('./routes/ventas');
+const sucursalRoutes = require('./routes/sucursal');
 // const branchRoutes = require('./routes/branches');
 
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use('/producto', productRoutes);
 app.use('/clients', clientRoutes);
 app.use('/ventas', salesRoutes);
+app.use('/sucursal', sucursalRoutes);
 // app.use('/branches', branchRoutes);
 
 module.exports = app;

@@ -59,6 +59,7 @@ exports.addNewClient = async (req, res) => {
   try {
     // Verificar si el cliente ya existe en la lista global
     const isGlobalClient = await redisClient.sIsMember('clientes', clientKey);
+    redisClient.geoRadius
 
     if (isGlobalClient) {
       return res.status(400).json({ message: 'El cliente ya existe globalmente' });

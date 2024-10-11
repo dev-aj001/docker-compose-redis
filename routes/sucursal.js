@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const ventaController = require('../controllers/ventaController');
+const sucursalController = require('../controllers/sucursalController');
 
 // Ruta para dos parametros id producto y num. sucursal
-router.post('/:ventasId/sucursal/:sucursalId', ventaController.postVenta);
+router.get('/geoRadius', sucursalController.geoSearch);
 
 module.exports = router;
