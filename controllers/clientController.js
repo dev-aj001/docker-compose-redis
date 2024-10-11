@@ -24,6 +24,30 @@ redisClient.on('error', (err) => {
   }
 })();
 
+exports.getclients = async (req, res) => {
+  try {
+    // Obtener todos los IDs de los clientes
+    const clientIds = await redisClient.sMembers('clientes');
+
+    // Extraer el ID y el nombre de cada cliente
+    const clients = clientIds.map(clientId => {
+      // console.log(clientId);
+      const parts = clientId.split(':'); // Divide por ':'
+      const namePart = parts[3]?.split("'")[1]; // Extrae el nombre
+      console.log(parts);
+      return {
+        id: parts[1], // ID del cliente
+        nombre: namePart // Nombre del cliente
+      };
+    });
+
+    res.json(clients); // Devuelve los clientes como JSON
+  } catch (error) {
+    console.error('Error retrieving clients:', error);
+    res.status(500).send('Error retrieving clients');
+  }
+};
+
 // Función para añadir un nuevo cliente
 exports.addNewClient = async (req, res) => {
   const { rfc, nombre, sucursalId } = req.body;

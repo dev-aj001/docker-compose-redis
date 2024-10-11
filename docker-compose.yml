@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: jair23/node-rutas
+    build: .
     container_name: node_app
     ports:
       - "3000:3000"
@@ -21,4 +21,4 @@ services:
       - "6379:6379"
       - "8001:8001"
     volumes:
-      - /home/user/Documents/redis_data:/data
+      - "C:/Users/jairi/OneDrive/Documentos/TECNOLOGICO/Semestre 9/NoSQL/redis db/redis_data:/data"
