@@ -39,3 +39,23 @@ exports.geoSearch = async (req, res) => {
         return res.status(500).json({ message: 'Error al procesar la solicitud', error });
     }
 };
+
+// get all clients from the sucursales
+exports.getClients = async (req, res) => {
+    const { sucursalID } = req.params;
+    
+    try {
+        const key = `sucursal:${sucursalID}:clientes`;
+        const clients = await redisClient.SMEMBERS(key);
+
+        console.log('key:', key);
+
+        return res.status(200).json(clients);
+        
+    } catch (error) {
+
+        console.error('Error:', error);
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+
+    }
+}
