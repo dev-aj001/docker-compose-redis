@@ -59,3 +59,29 @@ exports.getClients = async (req, res) => {
 
     }
 }
+
+
+exports.getAllClients = async (req, res) => {
+    
+    try {
+
+        const multi = redisClient.multi();
+
+        multi.SMEMBERS('sucursal:1111:clientes');
+        multi.SMEMBERS('sucursal:2222:clientes');
+        multi.SMEMBERS('sucursal:3333:clientes');
+        multi.SMEMBERS('sucursal:4444:clientes');
+
+        const result = await multi.exec();
+
+        console.log(result)
+
+        return res.status(200).json(result);
+        
+    } catch (error) {
+
+        console.error('Error:', error);
+        return res.status(500).json({ message: 'Error al procesar la solicitud', error });
+
+    }
+}
