@@ -21,16 +21,13 @@ redisClient.on('error', (err) => {
 // Función para obtener los detalles del producto por ID y num sucursal
 exports.geoSearch = async (req, res) => {
 
-    const { key, cords, km } = req.body;
-
-    latitude = 21.5107,
-    longitude = -104.8946
+    const { key, latitude, longitude, km } = req.body;
 
     try {
         // Usar await para obtener los detalles del producto
         console.log(req.body);
-        const nearbyLocations = await redisClient.geoSearch('sucursales_geopos', {latitude, longitude}, {radius: 10, unit: 'km'})
-        
+
+        const nearbyLocations = await redisClient.geoSearch(key, {latitude, longitude}, {radius: km, unit: 'km'});        
         console.log('Nearby locations:', nearbyLocations);
 
         return res.status(200).json(nearbyLocations);
