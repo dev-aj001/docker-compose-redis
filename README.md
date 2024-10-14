@@ -14,7 +14,7 @@ Para ejecutar la app es neserario cumplir con los siguientes requisitos.
     ```bash
     docker pull jair23/01_redis_api_app
     ```
-- Descargar el laboratorio de la base de datos de Redis: [redis.txt](https://github.com/dev-aj001/docker-compose-redis/laboratorio_redis.txt)
+- Descargar el laboratorio de la base de datos de Redis: [redis.txt](https://github.com/dev-aj001/docker-compose-redis/blob/main/laboratorio_redis.txt)
 - Cambiar en el archivo docker-compose.yml por la imagen descargada.
 - Levantar el docker-compose.yml.
     ```bash
