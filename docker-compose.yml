@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: cesarurielhr/01_redis_api-app
+    build: .
     container_name: node_app
     ports:
       - "3000:3000"
