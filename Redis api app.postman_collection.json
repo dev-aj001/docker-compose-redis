@@ -52,7 +52,56 @@
 			"response": []
 		},
 		{
-			"name": "Nuevo Cliente",
+			"name": "Q1. Obtener detalles de producto",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rfc\":\"RFC1234X\",\r\n    \"nombre\":\"Cesar Uriel 2\",\r\n    \"sucursalId\":\"1111\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/producto/1001/sucursal/1111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"producto",
+						"1001",
+						"sucursal",
+						"1111"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "Q2. Añadir un nuevo cliente.",
 			"event": [
 				{
 					"listen": "test",
@@ -97,7 +146,7 @@
 			"response": []
 		},
 		{
-			"name": "Venta",
+			"name": "Q3. Registrar una nueva venta para un cliente en específico",
 			"event": [
 				{
 					"listen": "test",
@@ -144,7 +193,7 @@
 			"response": []
 		},
 		{
-			"name": "Geo",
+			"name": "Q4. Buscar sucursales cercanas a una ubicación geográfica específica",
 			"event": [
 				{
 					"listen": "test",
@@ -193,7 +242,7 @@
 			"response": []
 		},
 		{
-			"name": "Clientes Sucursal Especifica",
+			"name": "Q5. Obtener el conjunto de clientes que han comprado en una sucursal específica.",
 			"event": [
 				{
 					"listen": "test",
@@ -242,7 +291,7 @@
 			"response": []
 		},
 		{
-			"name": "Todos los clientes de cada sucursal",
+			"name": "Q6. Registro histórico de los clientes que han hecho compras en cada sucursal",
 			"event": [
 				{
 					"listen": "test",
