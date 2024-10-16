@@ -25,7 +25,21 @@ Para ejecutar la app es neserario cumplir con los siguientes requisitos.
 
 ## Rutas
 
-### Q1. Obtener los detalles de un producto dado su ID.
+### Q1.  Obtener los detalles de un producto dado su ID.
+
+ruta: `http://localhost:3000/producto/1001/sucursal/111`
+
+metodo: `get`
+
+body:
+
+```js
+    none
+ ```
+
+
+
+### Q2. Añadir un nuevo cliente al conjunto de clientes de una sucursal y verificar que no exista previamente.
 
 ruta: `http://localhost:3000/clients/add`
 
@@ -41,7 +55,7 @@ body:
 }
  ```
 
-### Q2. Registrar una nueva venta para un cliente en específico.
+### Q3. Registrar una nueva venta para un cliente en específico.
 
 ruta: `http://localhost:3000/ventas/2024/sucursal/1111`
 
@@ -61,7 +75,7 @@ body:
 }
  ```
 
-### Q3. Buscar sucursales cercanas a una ubicación geográfica específica usando consultas geoespaciales.
+### Q4. Buscar sucursales cercanas a una ubicación geográfica específica usando consultas geoespaciales.
 
 ruta: `http://localhost:3000/sucursal/geoRadius/`
 
